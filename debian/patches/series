@@ -1,0 +1,6 @@
+up_six_PY
+print3.patch
+Allow-warning-in-ipython.patch
+Remove-external-image-links.patch
+#use-collections.abc.patch
+fix-sphinx-conf.patch

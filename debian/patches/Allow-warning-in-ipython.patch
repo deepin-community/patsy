@@ -1,0 +1,35 @@
+Author: Nilesh Patra <npatra974@gmail.com>
+Description: mpl-toolkit throws a deprecation warning due to which sphinx fails and makes this package FTBFS.
+
+Output:
+
+>>> for i in range(df * df):
+...     ax = fig.add_subplot(df, df, i + 1, projection='3d')
+...     yi = y[:, i].reshape(x1.shape)
+...     ax.plot_surface(x1, x2, yi, rstride=4, cstride=4, alpha=0.15)
+...     ax.contour(x1, x2, yi, zdir='z', cmap=cm.coolwarm, offset=-0.5)
+...     ax.contour(x1, x2, yi, zdir='y', cmap=cm.coolwarm, offset=1.2)
+...     ax.contour(x1, x2, yi, zdir='x', cmap=cm.coolwarm, offset=-0.2)
+...     ax.set_xlim3d(-0.2, 1.0)
+...     ax.set_ylim3d(0, 1.2)
+...     ax.set_zlim3d(-0.5, 1)
+...     ax.set_xticks([0, 1])
+...     ax.set_yticks([0, 1])
+...     ax.set_zticks([-0.5, 0, 1])
+... 
+<mpl_toolkits.mplot3d.art3d.Poly3DCollection object at 0x7fc40a85dbe0>
+/usr/lib/python3/dist-packages/numpy/core/_asarray.py:136: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  return array(a, dtype, copy=False, order=order, subok=True)
+
+Hence, disabled warnings for this block.
+Last Changed: Sat, July 11, 2020
+--- a/doc/spline-regression.rst
++++ b/doc/spline-regression.rst
+@@ -162,6 +162,7 @@
+ marginal spline bases patterns can be observed on the x and y contour projections:
+ 
+ .. ipython::
++   :okwarning:
+ 
+    In [10]: from matplotlib import cm
+ 

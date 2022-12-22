@@ -1,0 +1,50 @@
+Source: patsy
+Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+Uploaders: Yaroslav Halchenko <debian@onerussian.com>,
+           Michael Hanke <michael.hanke@gmail.com>,
+           Nilesh Patra <nilesh@debian.org>
+Section: python
+Priority: optional
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               python3-all,
+               python3-setuptools,
+               python3-numpy,
+               python3-scipy,
+               python3-pandas,
+               python3-pytest,
+               python3-six,
+               python3-matplotlib,
+               python3-sphinx,
+               ipython3,
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/med-team/patsy
+Vcs-Git: https://salsa.debian.org/med-team/patsy.git
+Homepage: https://github.com/pydata/patsy
+Rules-Requires-Root: no
+
+Package: python3-patsy
+Architecture: all
+Depends: ${misc:Depends},
+         ${python3:Depends},
+         python3-numpy
+Recommends: python3-pandas
+Suggests: python-patsy-doc
+Description: statistical models in Python using symbolic formulas
+ patsy is a Python library for describing statistical models
+ (especially linear models, or models that have a linear component)
+ and building design matrices.
+ .
+ This package contains the Python 3 version.
+
+Package: python-patsy-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends},
+         libjs-jquery,
+         libjs-underscore
+Suggests: python3-patsy
+Multi-Arch: foreign
+Description: documentation and examples for patsy
+ This package contains documentation and example scripts for
+ python3-patsy.

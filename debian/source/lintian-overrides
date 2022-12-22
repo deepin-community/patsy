@@ -1,0 +1,3 @@
+# False Positives
+patsy source: source-is-missing doc/_static/show-code.js *
+source-contains-prebuilt-javascript-object doc/_static/show-code.js *

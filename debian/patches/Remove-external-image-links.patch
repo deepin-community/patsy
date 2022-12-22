@@ -1,0 +1,18 @@
+Author: Nilesh Patra <npatra974@gmail.com>
+Description: Remove external image links (privacy breach) they are just zenodo's CI status/ logo links and have no real utility/functionality for end users
+Last Changed: Sat, July 11, 2020
+
+--- a/doc/changes.rst
++++ b/doc/changes.rst
+@@ -3,10 +3,7 @@
+ 
+ .. currentmodule:: patsy
+ 
+-All Patsy releases are archived at Zenodo:
+-
+-.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.592075.svg
+-   :target: https://doi.org/10.5281/zenodo.592075
++All Patsy releases are archived at Zenodo.
+ 
+ v0.5.2
+ ------

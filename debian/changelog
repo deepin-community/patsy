@@ -1,0 +1,194 @@
+patsy (0.5.2-2) unstable; urgency=medium
+
+  * d/p/fix-sphinx-conf.patch: Make doc/conf.py compatible
+    with new sphinx API to fix FTBFS
+
+ -- Nilesh Patra <nilesh@debian.org>  Sun, 26 Sep 2021 21:03:38 +0530
+
+patsy (0.5.2-1) unstable; urgency=medium
+
+  * New upstream version 0.5.2
+  * Drop d/p/use-collections.abc.patch: Fixed upstream
+  * d/p: Refresh and rediff patches
+  * d/rules: Remove homegrown test, let debhelper handle it
+  * d/control: Add B-D on python3-pytest
+  * d/s/lintian-overrides: Remove unused override
+  * Get autopkgtests working
+    + d/t/control: Drop un-needed test-depends, add python3-pytest
+      to test-depends
+    + Move d/t/nosetests3 -> d/t/pytest-3 to match the test that is
+      running
+    + d/t/pytest-3: Fix regex for finding out py_module, copy the needed
+      files to actually run tests
+
+ -- Nilesh Patra <nilesh@debian.org>  Sun, 26 Sep 2021 20:03:14 +0530
+
+patsy (0.5.1-4) unstable; urgency=medium
+
+  * Team upload.
+  * Fix watch file
+  * Standards-Version: 4.6.0 (routine-update)
+  * Apply multi-arch hints.
+    + python-patsy-doc: Add Multi-Arch: foreign.
+
+ -- Andreas Tille <tille@debian.org>  Sun, 22 Aug 2021 20:19:07 +0200
+
+patsy (0.5.1-3) unstable; urgency=medium
+
+  * Use collections.abc to remove deprecation warning
+    (Closes: #982612)
+  * Add myself to uploaders
+  * Declare compliance with policy 4.5.1
+  * Bump watch version to 4
+
+ -- Nilesh Patra <npatra974@gmail.com>  Tue, 16 Feb 2021 00:02:49 +0530
+
+patsy (0.5.1-2) unstable; urgency=medium
+
+  * Team Upload.
+  * Allow warnings in ipython docs (Closes: #964640)
+  * Remove External image links : privacy breach fix
+  * Fix copyright
+  * Fix Build-Deps, compat version: 13, Rules-Requires-Root:no
+  * Fix Deprecated adttmp
+  * s/http/https/
+  * Fix with cme
+  * Fix lintian
+
+ -- Nilesh Patra <npatra974@gmail.com>  Sat, 11 Jul 2020 14:13:25 +0000
+
+patsy (0.5.1-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Rebecca N. Palmer ]
+  * Use Python 3 syntax in example
+    Closes: #950098
+
+  [ Andreas Tille ]
+  * Package maintained by Debian Med team
+  * debian/gbp.conf: Removed since converted to default branch layout
+  * Standards-Version: 4.5.0 (routine-update)
+  * debhelper-compat 12 (routine-update)
+  * Secure URI in copyright format (routine-update)
+  * Remove trailing whitespace in debian/changelog (routine-update)
+  * Remove trailing whitespace in debian/rules (routine-update)
+  * Do not parse d/changelog (routine-update)
+  * Add salsa-ci file (routine-update)
+  * Use secure URI in Homepage field.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+ -- Andreas Tille <tille@debian.org>  Wed, 26 Feb 2020 14:20:20 +0100
+
+patsy (0.5.1-0.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix the dangling symlink for the nosetests3 autopkg test.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 12 Nov 2019 14:12:09 +0100
+
+patsy (0.5.1-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream version.
+  * Stop building the Python2 package. Closes: #937250, #934874.
+  * Bump debhelper compat to 9 (Steve Langasek).
+  * Switch from python-distutils to pybuild (Steve Langasek).
+
+ -- Matthias Klose <doko@debian.org>  Sun, 10 Nov 2019 14:52:05 +0100
+
+patsy (0.5.0+git13-g54dcf7b-1) unstable; urgency=medium
+
+  * New upstream snapshot from v0.5.0-13-g54dcf7b
+    - addresses python 3.7 incompatibility (Closes: #907335)
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Sat, 27 Oct 2018 23:16:29 -0400
+
+patsy (0.4.1+git34-ga5b54c2-1) unstable; urgency=medium
+
+  * New upstream snapshot from v0.4.1-34-ga5b54c2
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Thu, 03 Nov 2016 11:08:07 -0400
+
+patsy (0.4.1-2) unstable; urgency=medium
+
+  * debian/tests - refactored into reusable across packages/versions of python
+    script to avoid duplication etc
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Mon, 23 Nov 2015 20:23:49 -0500
+
+patsy (0.4.1-1) unstable; urgency=medium
+
+  * Fresh upsstream bugfix release
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Tue, 10 Nov 2015 19:13:17 -0500
+
+patsy (0.4.0-1) unstable; urgency=medium
+
+  * Fresh upstream release
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Tue, 21 Jul 2015 22:58:53 -0400
+
+patsy (0.3.0-3) unstable; urgency=medium
+
+  * debian/control
+    - add python{,3}-six into Depends
+  * debian/patches/up_six_PY
+    - to build on systems with older six
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Mon, 25 Aug 2014 23:08:32 -0400
+
+patsy (0.3.0-2) unstable; urgency=medium
+
+  * debian/tests/control
+    - add depends on python{,3}-six (Closes: #756528)
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Wed, 30 Jul 2014 14:26:13 -0400
+
+patsy (0.3.0-1) unstable; urgency=medium
+
+  * New upstream release
+    - addresses FTBFS due to API breakage in IPython 2.0 (Closes: #751045)
+  * debian/patches -- all CPed changesets dropped
+  * debian/control
+    - adding python-openpyxl into build-depends (for testing) and recommends
+    - adding python{,3}-six into build-depends
+    - adding ipython1x (for NeuroDebian backport builds) to build-depends as
+      a complement to stock ipython if stock ipython is too old (to build
+      documentation)
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Thu, 17 Jul 2014 12:14:42 -0400
+
+patsy (0.2.1-3) unstable; urgency=low
+
+  [ Martin Pitt ]
+  * Don't wrap test dependencies, autopkgtest does not currently support that.
+  * Actually test-depend on python[3]-patsy, not -pandas (Closes: #728077)
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Mon, 28 Oct 2013 09:40:58 -0400
+
+patsy (0.2.1-2) unstable; urgency=low
+
+  * Initial official Debian package (Closes: #718429)
+  * debian/copyright
+    - added missing copyright/license for facebox (MIT AKA Expat)
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Mon, 21 Oct 2013 15:50:44 -0400
+
+patsy (0.2.1-1) neurodebian; urgency=low
+
+  * Fresh upstream release
+  * debian/rules:
+    - export bogus http_proxy to safe-guard against downloads
+  * debian/patches
+    - cherry-pick eab795ce8dd2f0731d1b6764874a101c616d9311 from upstream
+      to pass tests on wheezy using python2.6 where pandas is N/A
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Tue, 20 Aug 2013 14:03:29 -0400
+
+patsy (0.1.0+git60-g7ddb7f3-1) neurodebian; urgency=low
+
+  * Initial Debian packaging
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Wed, 31 Jul 2013 13:43:28 -0400

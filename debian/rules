@@ -1,0 +1,66 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+export DH_VERBOSE=1
+export http_proxy=http://127.0.0.1:9/
+
+PACKAGE3_NAME = python3-patsy
+PACKAGE3_ROOT_DIR = debian/${PACKAGE3_NAME}
+
+PYVERS = $(shell pyversions -vr)
+PYVER = $(shell pyversions -vd)
+PY3VERS = $(shell py3versions -vr)
+PY3VER = $(shell py3versions -vd)
+
+# Some unittests might need to be excluded for different Python versions
+EXCLUDE_TESTS3.2 :=
+#--exclude "test_bootstrap_plot"
+EXCLUDE_TESTS3.3 :=
+#--exclude "test_(bootstrap_plot|quoting|cant_compare_tz_naive_w_aware|more_flexible_frame_multi_function|yahoo)"
+
+# MPLVER := $(shell dpkg -l python-matplotlib | awk '/^ii/{print $$3;}' || echo 0)
+# $(shell dpkg --compare-versions $(MPLVER) lt 1.0 && echo '|test_hist|test_plot|test_boxplot|test_corr_rank' || echo '')
+IPYTHONVER := $(shell dpkg -l ipython | awk '/^ii/{print $$3;}' || echo 0)
+IPYTHONPATH=$(shell dpkg --compare-versions $(IPYTHONVER) lt 1.0 && echo ':/usr/share/pyshared/IPython1X/' || echo '')
+
+# Mega rule
+%:
+	: # Explicit build system to avoid use of all-in-1 Makefile
+	dh $@ --buildsystem=pybuild --with python3
+
+python-build%:
+	python$* setup.py build
+
+override_dh_auto_build: $(PY3VERS:%=python-build%)
+	dh_auto_build
+
+python-install%:
+	python$* setup.py install --root=$(CURDIR)/debian/tmp \
+		--force --install-layout=deb
+
+override_dh_auto_install: $(PY3VERS:%=python-install%)
+	: # nothing more to do
+
+override_dh_clean:
+	rm -rf build *.egg-info doc/_build
+	dh_clean
+
+override_dh_installdocs:
+	: # Build Documentation using installed patsy
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS)))
+ifneq (,$(findstring -a,$(DH_INTERNAL_OPTIONS)))
+	: # not building documentation in -a
+else
+	export PYTHONPATH=`/bin/ls -d $$PWD/$(PACKAGE3_ROOT_DIR)/usr/lib/python$(PY3VER)/*`$(IPYTHONPATH); \
+	export MPLCONFIGDIR=$(CURDIR)/build HOME=$(CURDIR)/build; \
+	 make -C doc html
+	: # Use jquery from Debian package, so prune shipped one
+	-rm doc/_build/html/_static/jquery.js
+	-rm doc/_build/html/_static/underscore.js
+	dh_installdocs
+endif
+endif
+
+## immediately useable documentation and exemplar scripts/data
+override_dh_compress:
+	dh_compress -X.py -X.html -X.pdf -X.css -X.jpg -X.txt -X.js -X.json -X.rtc -Xobjects.inv

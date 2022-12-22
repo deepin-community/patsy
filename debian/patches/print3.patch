@@ -1,0 +1,16 @@
+Description: Use Python 3 syntax in example
+Bug-Debian: https://bugs.debian.org/950098
+Author: Rebecca N. Palmer <rebecca_palmer@zoho.com>
+Forwarded: no
+
+--- a/doc/spline-regression.rst
++++ b/doc/spline-regression.rst
+@@ -179,7 +179,7 @@
+       ....:            {"x1": x1.ravel(), "x2": x2.ravel(), "df": df})
+       ....:
+ 
+-   In [80]: print y.shape
++   In [80]: print(y.shape)
+ 
+    In [90]: fig = plt.figure()
+ 
