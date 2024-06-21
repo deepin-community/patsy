@@ -1,3 +1,31 @@
+patsy (0.5.6-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 0.5.6
+
+ -- Alexandre Detiste <tchet@debian.org>  Sun, 25 Feb 2024 09:49:51 +0100
+
+patsy (0.5.4-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version (Closes: #1058302)
+  * Standards-Version: 4.6.2 (routine-update)
+  * d/source/lintian-overrides: Remove, not needed
+  * Refresh patches and update descriptions
+  * d/rules: Clean png files in doc/savefig (Closes: #1047040)
+  * d/control: Add Testsuite autopkgtest-pkg-pybuild
+  * d/tests: Remove, upstream tests run by autopkgtest-pkg-pybuild
+  * d/rules: Copy upstream tests to build directory for autopkgtest
+
+ -- Lance Lin <lq27267@gmail.com>  Wed, 20 Dec 2023 20:32:17 +0700
+
+patsy (0.5.3-1) unstable; urgency=medium
+
+  * New upstream version 0.5.3 (Closes: #1022048)
+  * Bump Standards-Version to 4.6.1 (no changes needed)
+
+ -- Nilesh Patra <nilesh@debian.org>  Sun, 23 Oct 2022 16:06:39 +0530
+
 patsy (0.5.2-2) unstable; urgency=medium
 
   * d/p/fix-sphinx-conf.patch: Make doc/conf.py compatible

@@ -16,6 +16,7 @@ setup(
     version=__version__,
     description=DESC,
     long_description=LONG_DESC,
+    long_description_content_type="text/markdown",
     author="Nathaniel J. Smith",
     author_email="njs@pobox.com",
     license="2-clause BSD",
@@ -43,6 +44,9 @@ setup(
       "Programming Language :: Python :: 3.7",
       "Programming Language :: Python :: 3.8",
       "Programming Language :: Python :: 3.9",
+      "Programming Language :: Python :: 3.10",
+      "Programming Language :: Python :: 3.11",
+      "Programming Language :: Python :: 3.12",
       "Topic :: Scientific/Engineering",
     ],
 )
