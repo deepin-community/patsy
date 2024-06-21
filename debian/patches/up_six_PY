@@ -1,4 +1,7 @@
+Author: Yaroslav Halchenko, Nilesh Patra <npatra974@gmail.com>
 Description: Up_six_PY
+Last-Update: Sun Sep 26 19:19:49 2021 +0530
+
 --- a/patsy/compat.py
 +++ b/patsy/compat.py
 @@ -48,3 +48,11 @@

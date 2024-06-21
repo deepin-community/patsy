@@ -23,6 +23,8 @@ EXCLUDE_TESTS3.3 :=
 IPYTHONVER := $(shell dpkg -l ipython | awk '/^ii/{print $$3;}' || echo 0)
 IPYTHONPATH=$(shell dpkg --compare-versions $(IPYTHONVER) lt 1.0 && echo ':/usr/share/pyshared/IPython1X/' || echo '')
 
+export PYBUILD_BEFORE_TEST = cp -r {dir}/patsy {build_dir}
+
 # Mega rule
 %:
 	: # Explicit build system to avoid use of all-in-1 Makefile
@@ -42,7 +44,7 @@ override_dh_auto_install: $(PY3VERS:%=python-install%)
 	: # nothing more to do
 
 override_dh_clean:
-	rm -rf build *.egg-info doc/_build
+	rm -rf doc/_build doc/savefig
 	dh_clean
 
 override_dh_installdocs:

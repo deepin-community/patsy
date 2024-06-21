@@ -1,3 +1,7 @@
+Author: Nilesh Patra <npatra974@gmail.com>
+Description: Fix sphinx conf.py
+Last-Update: Sun Sep 26 20:56:19 2021 +0530
+
 --- a/doc/conf.py
 +++ b/doc/conf.py
 @@ -1,27 +1,27 @@

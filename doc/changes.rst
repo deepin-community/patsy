@@ -8,6 +8,32 @@ All Patsy releases are archived at Zenodo:
 .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.592075.svg
    :target: https://doi.org/10.5281/zenodo.592075
 
+v0.5.6
+------
+
+* Avoid using deprecated `is_categorical_dtype` from `pandas` at all in pandas >=0.25.
+* Avoid using deprecated `numpy.row_stack` in favor of `numpy.vstack`.
+
+v0.5.5
+------
+
+* Handle deprecation of `_is_categorical_dtype` in `pandas`.
+* Replace `numpy.issubsctype` usage with `numpy.issubdtype` for compatibility with `numpy` 2.0.
+
+v0.5.4
+------
+
+* Add support for Python 3.12, and fix broken unit tests in this version.
+
+v0.5.3
+------
+
+* Officially add support for Python 3.10 and 3.11, and extend test coverage to
+  include these releases.
+* Fix handling of future interpreter features that no longer have a mandatory
+  release version, as for the `annotations` feature (See `#187
+  <https://github.com/pydata/patsy/pull/187>`__ for details.)
+
 v0.5.2
 ------
 
