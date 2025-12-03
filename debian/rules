@@ -7,16 +7,8 @@ export http_proxy=http://127.0.0.1:9/
 PACKAGE3_NAME = python3-patsy
 PACKAGE3_ROOT_DIR = debian/${PACKAGE3_NAME}
 
-PYVERS = $(shell pyversions -vr)
-PYVER = $(shell pyversions -vd)
 PY3VERS = $(shell py3versions -vr)
 PY3VER = $(shell py3versions -vd)
-
-# Some unittests might need to be excluded for different Python versions
-EXCLUDE_TESTS3.2 :=
-#--exclude "test_bootstrap_plot"
-EXCLUDE_TESTS3.3 :=
-#--exclude "test_(bootstrap_plot|quoting|cant_compare_tz_naive_w_aware|more_flexible_frame_multi_function|yahoo)"
 
 # MPLVER := $(shell dpkg -l python-matplotlib | awk '/^ii/{print $$3;}' || echo 0)
 # $(shell dpkg --compare-versions $(MPLVER) lt 1.0 && echo '|test_hist|test_plot|test_boxplot|test_corr_rank' || echo '')
@@ -28,7 +20,7 @@ export PYBUILD_BEFORE_TEST = cp -r {dir}/patsy {build_dir}
 # Mega rule
 %:
 	: # Explicit build system to avoid use of all-in-1 Makefile
-	dh $@ --buildsystem=pybuild --with python3
+	dh $@ --buildsystem=pybuild
 
 python-build%:
 	python$* setup.py build
