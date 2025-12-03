@@ -2,27 +2,25 @@ Source: patsy
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
 Uploaders: Yaroslav Halchenko <debian@onerussian.com>,
            Michael Hanke <michael.hanke@gmail.com>,
-           Nilesh Patra <nilesh@debian.org>
 Section: python
 Priority: optional
 Build-Depends: debhelper-compat (= 13),
-               dh-python,
+               dh-sequence-python3,
                python3-all,
                python3-setuptools,
                python3-numpy,
                python3-scipy,
                python3-pandas,
-               python3-pytest,
-               python3-six,
+               python3-pickleshare <!nodoc>,
+               python3-pytest <!nocheck>,
                python3-matplotlib,
                python3-sphinx,
                ipython3,
-Standards-Version: 4.6.2
+Standards-Version: 4.7.2
 Testsuite: autopkgtest-pkg-pybuild
 Vcs-Browser: https://salsa.debian.org/med-team/patsy
 Vcs-Git: https://salsa.debian.org/med-team/patsy.git
 Homepage: https://github.com/pydata/patsy
-Rules-Requires-Root: no
 
 Package: python3-patsy
 Architecture: all

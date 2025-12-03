@@ -20,8 +20,7 @@ building design matrices. Patsy brings the convenience of [R](http://www.r-proje
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/patsy.svg)
 ![https://patsy.readthedocs.io/](https://img.shields.io/badge/docs-read%20now-blue.svg)
 ![PyPI - Status](https://img.shields.io/pypi/status/patsy.svg)
-![https://travis-ci.org/pydata/patsy](https://travis-ci.org/pydata/patsy.png?branch=master)
-![https://coveralls.io/r/pydata/patsy?branch=master](https://coveralls.io/repos/pydata/patsy/badge.png?branch=master)
+[![https://coveralls.io/r/pydata/patsy?branch=master](https://coveralls.io/repos/pydata/patsy/badge.png?branch=master)](https://coveralls.io/github/pydata/patsy)
 ![https://doi.org/10.5281/zenodo.592075](https://zenodo.org/badge/DOI/10.5281/zenodo.592075.svg)
 
 - **Documentation:** <https://patsy.readthedocs.io/>
@@ -32,8 +31,7 @@ building design matrices. Patsy brings the convenience of [R](http://www.r-proje
 
 ## Dependencies
 
-  * Python (2.6, 2.7, or 3.3+)
-  * six
+  * Python (3.6+)
   * numpy
   * Optional:
     * pytest/pytest-cov: needed to run tests
